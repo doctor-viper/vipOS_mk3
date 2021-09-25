@@ -1,0 +1,59 @@
+/* I M P O R T S
+-------------------------------------------------------------------------------*/
+@import 'reset';
+$min-height: 300px;
+
+
+/* S T Y L E S
+-------------------------------------------------------------------------------*/
+body {
+  background: url('../img/dv_background.gif');
+  border-top: 10px solid #333;
+  font: 13px Helmet, Freesans, sans-serif;
+}
+
+.wrapper {
+  margin: 50px auto 0;
+  min-height: $min-height;
+  position: relative;
+  width: 70%;  
+}
+
+header {
+  background: url('../img/dv_sunset.png') no-repeat top left;
+  background-size: cover;
+  left: 0;
+  margin: 0 auto;
+  min-height: $min-height;
+  padding: 75px 0 0;
+  //position: absolute;
+  top: 0;
+  width: 300px;
+
+
+  h1 {
+    background: url('../img/dv_logo.png');
+    min-height: 164px;
+    text-indent: -9999px;
+  }
+}
+
+
+
+/* Media queries
+-------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 480px) {
+
+
+}
+
+
+
+/* Print styles
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
