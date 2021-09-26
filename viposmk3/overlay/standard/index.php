@@ -45,8 +45,6 @@
 
 ?>
 
-<script src="/assets/js/overlay.js" type="text/javascript"></script>
-
 <div class='all-in-one'>
 
   <div class='carousel'>
