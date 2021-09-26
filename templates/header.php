@@ -16,7 +16,7 @@
   <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
   <title>D O C T O R - V I P E R</title>
   <meta name="author" content="Dr. Viper" />
-  <meta name="description" content="Homepage of streamer Dr. Viper" />
+  <meta name="description" content="Here to bust some punks." />
 
   <!-- Who owns the content of this site? -->
   <meta name="Copyright" content="" />
@@ -46,7 +46,7 @@
 
   <!-- this is where we put our custom functions -->
   <!-- don't forget to concatenate and minify for production -->
-  <script src="assets/js/functions.js"></script>
+  <script src="/assets/js/functions.js"></script>
   <script>$(document).ready(initPage);</script>
 
   <!-- Twitter: see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary for details -->
@@ -63,4 +63,4 @@
 
 </head>
 
-<body>
+<body<?php if($_SERVER['REQUEST_URI'] == '/'){ ?> class="home-page"<?php } ?>>
