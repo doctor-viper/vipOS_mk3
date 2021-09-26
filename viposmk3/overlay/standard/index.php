@@ -45,7 +45,7 @@
 
 ?>
 
-<div class='all-in-one'>
+<div class='carousel-parent'>
 
   <div class='carousel'>
 
