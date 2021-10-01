@@ -50,7 +50,7 @@
   function get_sub_goal($sub_count) {
     $goal_num = 0;
     for($i=0;$i<count(VIPER_SUB_GOALS);$i++){
-      if(VIPER_SUB_GOALS[$i] >= $sub_count) {
+      if(VIPER_SUB_GOALS[$i] > $sub_count) {
         $goal_num = VIPER_SUB_GOALS[$i];
         break;
       }
