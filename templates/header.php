@@ -33,7 +33,7 @@
   <link rel="shortcut icon" href="/favicon.ico" />
 
   <!-- concatenate and minify for production -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css?bust=<?=time();?>" />
 
 
   <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
@@ -46,7 +46,7 @@
 
   <!-- this is where we put our custom functions -->
   <!-- don't forget to concatenate and minify for production -->
-  <script src="/assets/js/functions.js"></script>
+  <script src="/assets/js/functions.js?bust=<?=time();?>"></script>
   <script>$(document).ready(initPage);</script>
 
   <!-- Twitter: see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary for details -->
