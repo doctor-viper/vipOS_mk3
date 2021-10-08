@@ -13,7 +13,7 @@
 
 ?>
 
-<div class='carousel-parent'>
+<div class='carousel-small-parent'>
 
   <div class='carousel'>
 

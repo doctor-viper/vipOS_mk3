@@ -31,7 +31,10 @@
 	        success: function (data) { 
 	          $('.follower-text').text(data.follower);
 	          $('.subscriber-text').text(data.subscriber);
+	          $('.bits-leader-text').text(data.bits_leader);
+	          $('.bits-amt').text(data.bits_amt);
 	          $('.goal-text').html(data.goal);
+
 	          $('.sub-count-text').text(data.sub_count);
 	          $('.sub-count-goal-text').text(data.goal_num);
 	        },

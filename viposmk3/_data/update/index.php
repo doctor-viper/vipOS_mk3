@@ -18,7 +18,7 @@
    * 
    **/
   if(!empty($_POST) && isset($_POST)) {
-    update_viper_overlay($_POST);
+    update_viper_overlay_data($_POST);
   } else {
     echo "<pre>// I N V A L I D - D A T A</pre>";
   }
