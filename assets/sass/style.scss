@@ -157,6 +157,107 @@ header {
   }
 }
 
+
+/* O V E R L A Y - C A R O U S E L ( S M A L L )
+-------------------------------------------------------------------------------*/
+.carousel-small-parent {
+  background: #FFD701;
+  background: -webkit-linear-gradient(top right, #FFD701, #FF2904);
+  background: -moz-linear-gradient(top right, #FFD701, #FF2904);
+  background: linear-gradient(to bottom left, #FFD701, #FF2904);
+  min-height: 125px;
+  position: relative;
+  width: 350px;
+
+  
+  .carousel {
+    position: relative;
+  }
+
+  .carousel-container  {    
+    h1 {
+      color: #fff;
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      line-height: 20px;
+      position: absolute;
+      text-align: center;
+      text-transform: uppercase;
+      top: 17px;
+      animation:spin 20s linear infinite;
+      width: 100%;     
+      &.pink {
+        color: #ff00f0;
+        top: 19px;
+        left: -2px;
+      }
+      &.black {
+        color: #000;
+        top: 21px;
+        left: -4px;
+      }
+    }      
+
+    h2 {
+      color:  #fff;
+      position: absolute;
+      text-align: center;
+      font-size:  12px;
+      top: 55px;
+      letter-spacing: 2px;
+      width: 100%;
+      animation:fadeIn 20s linear infinite;      
+      &.sub-color {
+        color: #000;
+        left: -2px;
+        top:  57px;
+      }
+    }
+  }
+
+  .subscriber-goal {
+    border-top: 1px solid #333;
+    position: absolute;
+    //top: 110px;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    font-size:  12px;
+    background: #3E00CF;
+    background: -webkit-linear-gradient(to top right, #3E00CF 0%, #A604CF 100%);
+    background: -moz-linear-gradient(to top right, #3E00CF 0%, #A604CF 100%);
+    background: linear-gradient(to top right, #3E00CF 0%, #A604CF 100%);
+    
+    h1 {
+      text-align: center;
+      position: absolute;
+      top: 12px;
+      width: 100%;
+      color: #fff;
+      letter-spacing: 1.5px;
+      &.pink {
+        color: #ff00f0;      
+        left: -2px;
+        top: 14px;
+      }
+      &.black {
+        color: #000;      
+        left: -4px;
+        top: 16px;
+      }
+    
+      span.goalnums {
+        display: inline-block;
+        padding-left: 60px;
+      }
+    }
+  }
+
+}
+
+/* keyframe animations
+-------------------------------------------------------------------------------*/
+
 @keyframes spin { 
   0%   { transform:rotateX(90deg); }
   10%  { transform:rotateX(0deg);  }
