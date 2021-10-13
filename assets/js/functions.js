@@ -47,4 +47,32 @@
 
 	  }
 
+
+	  if($('.overlay-bar'.length)) {
+
+	  	(function updateOverlay() {
+	      $.ajax({
+	        type: 'GET',
+	        cache: false,
+	        url: '/viposmk3/_data/data.json', 
+	        dataType: 'json',
+	        success: function (data) { 
+	          $('.follower-text').text(data.follower);
+	          $('.subscriber-text').text(data.subscriber);
+	          $('.bits-leader-text').html(data.bits_leader + "&nbsp;&nbsp;@&nbsp;&nbsp;" + data.bits_amt);
+	          //$('.bits-amt').text(data.bits_amt);
+
+	          $('.sub-count-text').text(data.sub_count);
+	          $('.sub-count-goal-text').text(data.goal_num);
+	        },
+	        complete: function() {
+	          // Schedule the next request when the current one's complete
+	          setTimeout(updateOverlay, 100);
+	        }
+	      });
+	    })();
+
+
+	  }
+
   });  

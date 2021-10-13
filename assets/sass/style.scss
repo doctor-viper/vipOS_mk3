@@ -255,6 +255,8 @@ header {
 
 }
 
+
+
 /* keyframe animations
 -------------------------------------------------------------------------------*/
 
@@ -270,6 +272,182 @@ header {
   5%   { opacity:1; }
   95%  { opacity:1; }
   100% { opacity:0; }
+}
+
+
+
+/* keyframe animations
+-------------------------------------------------------------------------------*/
+
+.overlay-bar {
+
+  background-image: url('../img/dv_background.gif');
+  height: 35px;
+  position: relative;
+  width: 1920px;
+  border-bottom: 1px solid #666;
+
+  .main-bar {
+
+    padding-left: 40px;
+
+    .main-item {
+      display: inline-block;
+      float:left;
+      height: 35px;
+      position: relative;
+
+      &.commands {
+        width: 70px;
+        margin: 0;
+      }
+
+      &.discord,
+      &.socials {
+        width: 100px;
+      }
+
+      &.lurk,
+      &.sfx {
+        width: 75px;
+      }      
+
+      &.follow,
+      &.sub,
+      &.cheer {
+        background: url('../img/dv_overlay_separator.png') no-repeat top left;
+        width: 350px;
+        margin-left: 10px;
+
+        h1 {
+          left: 25px;
+          top: 13px;
+          font-size: 10px;
+          letter-spacing: 1px;
+          
+          &.grey {
+            top: 14px;
+            left: 24px;
+          }
+
+          &.black {
+            top: 15px;
+            left: 23px;
+          }
+
+        }
+
+
+        h2 {
+          position: absolute;
+          left: 155px;
+          top: 10px;
+          color: #fff;
+
+          &.pink {
+            color: #ff00f0;
+            top: 11px;
+            left: 154px;
+          }
+
+          &.black {
+            color: #000;
+            top: 13px;
+            left: 152px;
+          }
+        }
+      }
+
+      &.sub {
+        margin-left: 0;
+         h2 {
+          left: 130px;
+
+          &.pink {
+            left: 129px;
+          }
+
+          &.black {
+            left: 128px;
+          }
+        }
+      }
+
+      &.cheer {
+        margin-left: 0;
+        width: 400px;
+         h2 {
+          left: 120px;
+
+          &.pink {
+            left: 119px;
+          }
+
+          &.black {
+            left: 118px;
+          }
+        }
+      }    
+
+
+      h1 {
+        position: absolute;
+        color: #fff;
+        top: 9px;
+      }
+
+      h1.grey {
+        top: 10px;
+        left: -1px;
+        margin-top: 0;
+        color: #2b336f;
+        z-index: 0;
+      }
+
+      h1.black {
+        top: 11px;
+        left: -2px;
+        margin-top: 0;
+        color: #000;
+        z-index: 0;
+      }
+    }
+  }
+
+  .subscriber-goal {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    width: 350px;
+    font-size:  12px;
+    background: linear-gradient(to bottom left, #A604CF 0%, #2b336f 100%);
+    
+    h1 {
+      text-align: center;
+      position: absolute;
+      width: 350px;
+      color: #fff;
+      letter-spacing: 1.5px;
+      top: 9px;
+      &.pink {
+        color: #ff00f0;      
+        left: -2px;
+        top: 11px;
+      }
+      &.black {
+        color: #000;      
+        left: -4px;
+        top: 13px;
+      }
+    
+      span.goalnums {
+        display: inline-block;
+        padding-left: 60px;
+      }
+    }
+  }
+
 }
 
 

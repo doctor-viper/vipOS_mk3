@@ -52,6 +52,7 @@
    * 
    **/ 
   function update_viper_overlay() {
+
     // create curl resource
     $ch = curl_init();
 
@@ -83,7 +84,14 @@
     $data["subscriber"] = $subscriber;
 
     // Get the bits leader information and add that to the data obj
-    $bits_info = get_viper_bits_leader();
+    try {
+      $bits_info = get_viper_bits_leader();
+    } catch (Throwable $e) {
+      refresh_twitch_oath();
+      sleep(1);
+      $bits_info = get_viper_bits_leader();
+    }
+
     // We don't need everything, so only grab what we want
     $data["bits_leader"] = $bits_info["user_name"];
     $data["bits_amt"] = $bits_info["score"];
@@ -105,6 +113,46 @@
 
 
   /**
+   * get_viper_latest_sub
+   * 
+   * Gets the latest subscriber
+   * 
+   **/
+  function get_viper_latest_sub() {
+    
+    // create curl resource
+    // $ch = curl_init();
+
+    // //return the transfer as a string
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    // // Set headers
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, VIPER_TWITCH_API_HEADERS);
+    
+    // // set url
+    // curl_setopt($ch, CURLOPT_URL, "https://api.twitch.tv/helix/bits/leaderboard?count=1&period=month&started_at=".urlencode($start_date));
+
+    // // $output contains the output string
+    // $bits_info = curl_exec($ch);
+
+    // $data = json_decode($bits_info);
+
+    // // echo "<pre>";
+    // // var_dump($data);
+    // // echo "</pre>";
+
+    // curl_close($ch);
+
+    // $return_obj["user_name"] = $data->data[0]->user_name;
+    // $return_obj["score"] = $data->data[0]->score;
+
+    // return $return_obj;
+
+  }
+
+
+
+  /**
    * get_viper_bits_leader
    * 
    * Gets the bits ( cheerer ) leader for the past month
@@ -112,6 +160,8 @@
    **/
   function get_viper_bits_leader() {
     
+    global $viper_twitch_api_headers;
+
     // create curl resource
     $ch = curl_init();
 
@@ -119,7 +169,7 @@
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
     // Set headers
-    curl_setopt($ch, CURLOPT_HTTPHEADER, VIPER_TWITCH_BITS_HEADERS);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $viper_twitch_api_headers);
     
     // Set start date for today in RFC 3339 Format
     $start_date = date("Y-m-d\TH:i:sP");
@@ -132,11 +182,11 @@
 
     $data = json_decode($bits_info);
 
-    // echo "<pre>";
-    // var_dump($data);
-    // echo "</pre>";
-
     curl_close($ch);
+
+    if(property_exists($data, "error")) {
+      throw new Exception();
+    }
 
     $return_obj["user_name"] = $data->data[0]->user_name;
     $return_obj["score"] = $data->data[0]->score;
@@ -166,6 +216,36 @@
       }
     }
     return $goal_num;
+  }
+
+
+
+  /**
+   * 
+   *
+   **/
+  function refresh_twitch_oath() {
+    
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_URL, "https://id.twitch.tv/oauth2/token?grant_type=refresh_token&refresh_token=".VIPER_REFRESH_TOKEN."&client_id=".VIPER_CLIENT_ID."&client_secret=".VIPER_CLIENT_SECRET);
+        
+    $response = json_decode(curl_exec($ch));
+    
+    file_put_contents('C:\\xampp\\viper\\viposmk3\\_inc\\twitch\\access_token.txt', $response->access_token);
+
+    global $viper_twitch_api_headers;
+
+    $viper_twitch_api_headers = [
+      'Authorization: Bearer ' . $response->access_token,
+      'Client-Id: ' . VIPER_CLIENT_ID
+    ];
+
+    curl_close($ch);
+
   }
 
 
