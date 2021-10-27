@@ -13,7 +13,7 @@
 
 ?>
 
-<div class="overlay-bar">
+<div class="overlay-bar_large">
 
   <div class="main-bar">
     
@@ -41,31 +41,28 @@
       <h1>!lurk</h1>      
     </div>
 
-    <div class="main-item sfx">
-      <h1 class="black">!sfx</h1>
-      <h1 class="grey">!sfx</h1>
-      <h1>!sfx</h1>      
-    </div>
-
     <div class="main-item follow">
-      <h1 class="black">Follower:</h1>
-      <h1 class="grey">Follower:</h1>
-      <h1>Follower:</h1>
+      <img class="bg" src="/assets/img/dv_overlay_separator.png">
+      <h1 class="black">Follow:</h1>
+      <h1 class="grey">Follow:</h1>
+      <h1>Follow:</h1>
       <h2 class="black follower-text"><?=$viper_info["follower"]?></h2>
       <h2 class="pink follower-text"><?=$viper_info["follower"]?></h2>
       <h2 class="follower-text"><?=$viper_info["follower"]?></h2>   
     </div>
 
     <div class="main-item sub">
-      <h1 class="black">Subscriber:</h1>
-      <h1 class="grey">Subscriber:</h1>
-      <h1>Subscriber:</h1>
+      <img class="bg" src="/assets/img/dv_overlay_separator.png">
+      <h1 class="black">Sub:</h1>
+      <h1 class="grey">Sub:</h1>
+      <h1>Sub:</h1>
       <h2 class="black subscriber-text"><?=$viper_info["subscriber"]?></h2>
       <h2 class="pink subscriber-text"><?=$viper_info["subscriber"]?></h2>
       <h2 class="subscriber-text"><?=$viper_info["subscriber"]?></h2>   
     </div>
 
     <div class="main-item cheer">
+      <img class="bg" src="/assets/img/dv_overlay_separator.png">
       <h1 class="black">Top Cheer:</h1>
       <h1 class="grey">Top Cheer:</h1>
       <h1>Top Cheer:</h1>
@@ -77,9 +74,9 @@
   </div>
 
   <div class='subscriber-goal'>
-    <h1 class='black'>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
-    <h1 class='pink'>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
-    <h1>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
+    <h1 class='black'>Subs Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
+    <h1 class='pink'>Subs Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
+    <h1>Subs Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
   </div>
 
 </div>

@@ -51,11 +51,11 @@
 
   </div>
 
-  <div class='subscriber-goal'>
+  <!-- <div class='subscriber-goal'>
     <h1 class='black'>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
     <h1 class='pink'>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
     <h1>Subscriptions Goal<span class='goalnums'><span class='sub-count-text'><?=$viper_info["sub_count"]?></span> / <span class='sub-count-goal-text'><?=$viper_info["goal_num"]?></span></span></h1>
-  </div>
+  </div> -->
 
 </div>
 
