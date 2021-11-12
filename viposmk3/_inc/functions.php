@@ -40,6 +40,34 @@
 
 
   /**
+   * 
+   * update_viper_overlay_data
+   * 
+   * $data   object       Data object with recent follower, 
+   *                      subscriber, sub count, and sub goal
+   * 
+   * Converts data object to JSON to be used by the Viper
+   * Overlay, will figure out next goal level based on how many subscribers
+   * there are dynamically. 
+   * 
+   * See CONST // VIPER_SUB_GOALS
+   * 
+   **/
+  function turn_predator_vision_on_off($value = false) {
+
+    $data = Array (
+      "play" => $value
+    );
+
+    // encode array to json
+    $json = json_encode($data);
+    file_put_contents("C:\\xampp\\viper\\viposmk3\\_data\predator.json", $json);
+
+  }
+
+
+
+  /**
    * update_viper_overlay
    * 
    * Grabs the most recent follower, subscriber, top cheerer ( + score ) from DecAPI / Twitch APIs
@@ -99,6 +127,9 @@
     // Update the data source we'll be polling later
     update_viper_overlay_data($data);
 
+    // Update the Lametric Overlay
+    update_viper_lametric_app($follower,$subscriber);
+
     // Get the goal num ( goal limits array in config file )
     // This number isn't required for data, so we add it after the write call
     $goal_num = get_sub_goal(intval($sub_count));
@@ -107,6 +138,27 @@
     curl_close($ch);
 
     return $data;    
+
+  }
+
+
+
+  function update_viper_lametric_app($follower,$subscriber) {
+
+    $ch = curl_init( 'http://localhost/viposmk3/lametric/follow_subs_app/update/' );
+    
+    # Setup request to send json via POST.
+    $payload = json_encode( array( "follower" => array( "name" => $follower ), "subscriber" => array( "name" => $subscriber ) ) );
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, $payload );
+    curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+    
+    # Return response instead of printing.
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    
+    # Send request.
+    $result = curl_exec($ch);
+    curl_close($ch);
+
 
   }
 
@@ -188,8 +240,13 @@
       throw new Exception();
     }
 
-    $return_obj["user_name"] = $data->data[0]->user_name;
-    $return_obj["score"] = $data->data[0]->score;
+    $return_obj["user_name"] = "COULD BE";
+    $return_obj["score"] = "YOU!";
+
+    if(count($data->data) > 0) {
+      $return_obj["user_name"] = $data->data[0]->user_name;
+      $return_obj["score"] = $data->data[0]->score;
+    }
 
     return $return_obj;
 

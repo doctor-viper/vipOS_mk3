@@ -43,9 +43,9 @@
 
     <div class="main-item follow">
       <img class="bg" src="/assets/img/dv_overlay_separator.png">
-      <h1 class="black">Follow:</h1>
-      <h1 class="grey">Follow:</h1>
-      <h1>Follow:</h1>
+      <h1 class="black">Follower:</h1>
+      <h1 class="grey">Follower:</h1>
+      <h1>Follower:</h1>
       <h2 class="black follower-text"><?=$viper_info["follower"]?></h2>
       <h2 class="pink follower-text"><?=$viper_info["follower"]?></h2>
       <h2 class="follower-text"><?=$viper_info["follower"]?></h2>   
@@ -53,9 +53,9 @@
 
     <div class="main-item sub">
       <img class="bg" src="/assets/img/dv_overlay_separator.png">
-      <h1 class="black">Sub:</h1>
-      <h1 class="grey">Sub:</h1>
-      <h1>Sub:</h1>
+      <h1 class="black">Subscriber:</h1>
+      <h1 class="grey">Subscriber:</h1>
+      <h1>Subscriber:</h1>
       <h2 class="black subscriber-text"><?=$viper_info["subscriber"]?></h2>
       <h2 class="pink subscriber-text"><?=$viper_info["subscriber"]?></h2>
       <h2 class="subscriber-text"><?=$viper_info["subscriber"]?></h2>   

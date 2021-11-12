@@ -48,7 +48,7 @@
 	  }
 
 
-	  if($('.overlay-bar'.length)) {
+	  if($('.overlay-bar').length) {
 
 	  	(function updateOverlay() {
 	      $.ajax({
@@ -60,7 +60,6 @@
 	          $('.follower-text').text(data.follower);
 	          $('.subscriber-text').text(data.subscriber);
 	          $('.bits-leader-text').html(data.bits_leader + "&nbsp;&nbsp;@&nbsp;&nbsp;" + data.bits_amt);
-	          //$('.bits-amt').text(data.bits_amt);
 
 	          $('.sub-count-text').text(data.sub_count);
 	          $('.sub-count-goal-text').text(data.goal_num);
@@ -72,6 +71,51 @@
 	      });
 	    })();
 
+
+	  }
+
+
+	  if($('#predator').length) {
+	  	
+	  	$("#video-container").hide();
+
+			(function checkForPredatorVision() {
+	      $.ajax({
+	        type: 'GET',
+	        cache: false,
+	        url: '/viposmk3/_data/predator.json', 
+	        dataType: 'json',
+	        success: function (data) { 
+	          if(data.play) { 
+							setVisionFalse();
+	          }
+	        },
+	        complete: function() {
+	          // Schedule the next request when the current one's complete
+	          setTimeout(checkForPredatorVision, 1000);
+	        }
+	      });
+	    })();
+
+	    function setVisionFalse() {
+	    	$.ajax({
+	        type: 'POST',
+	        cache: false,
+	        url: '/viposmk3/overlay/predator/off/', 
+	        success: function (data) { 
+	        	showVideo();
+	        }
+	      });	    	
+	    }
+
+	    function showVideo() {
+	    	$("#video-container").show();
+	    	setTimeout(hideVideo, 7000);
+	    }
+
+	    function hideVideo() {
+	    	$("#video-container").hide();
+	    }
 
 	  }
 
